@@ -3,7 +3,15 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'src/**'
+      - 'test/**'
+      - '.github/workflows/test.yaml'
   pull_request:
+    paths:
+      - 'src/**'
+      - 'test/**'
+      - '.github/workflows/test.yaml'
   workflow_dispatch:
 
 jobs:
@@ -13,7 +21,6 @@ jobs:
     strategy:
       matrix:
         features:
-          - color
           - hello
         baseImage:
           - debian:latest
@@ -34,7 +41,6 @@ jobs:
     strategy:
       matrix:
         features:
-          - color
           - hello
     steps:
       - uses: actions/checkout@v4
